@@ -2,7 +2,7 @@ from django.db import models
 from accounts.models import User
 
 class UserProjects(models.Model):
-	owner 		 = models.ForeignKey(User, null=True, on_delete = models.SET_NULL)
+	owner 		 = models.ForeignKey(User, null=True, on_delete = models.CASCADE)
 	start_date 	 = models.DateField()
 	end_date	 = models.DateField()
 	title		 = models.CharField(max_length=200, blank=False)
@@ -16,7 +16,7 @@ class UserProjects(models.Model):
 		return self.owner
 
 class UserEducation(models.Model):
-	owner  		 = models.ForeignKey(User, null=True, on_delete = models.SET_NULL)
+	owner  		 = models.ForeignKey(User, null=True, on_delete = models.CASCADE)
 	start_date 	 = models.DateField()
 	end_date	 = models.DateField()
 	course  	 = models.CharField(max_length=255)
@@ -29,7 +29,7 @@ class UserEducation(models.Model):
 		return self.owner
 
 class UserExperience(models.Model):
-	owner 		 = models.ForeignKey(User, null=True, on_delete = models.SET_NULL)
+	owner 		 = models.ForeignKey(User, null=True, on_delete = models.CASCADE)
 	start_date 	 = models.DateField()
 	end_date	 = models.DateField()
 	designation  = models.CharField(max_length=100)
