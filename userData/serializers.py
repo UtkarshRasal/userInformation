@@ -2,13 +2,11 @@ from rest_framework import serializers
 from .models import UserProjects, UserEducation, UserExperience
 
 class UserProjectSerializer(serializers.ModelSerializer):
-    link = serializers.CharField(max_length=200, required=False)
-    # owner = serializers.RelatedField(many=True, read_only=True)
+	link = serializers.CharField(max_length=200, required=False)
 
-    class Meta:
-        model   = UserProjects
-        fields  = ['owner', 'start_date', 'end_date', 'title', 'description', 'link']
-		
+	class Meta:
+		model = UserProjects
+		fields = '__all__'
 
 class UserEducationSerializer(serializers.ModelSerializer):
 
